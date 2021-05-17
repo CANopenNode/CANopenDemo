@@ -1,0 +1,13 @@
+# MPLAB X IDE, keep only base project files:
+# - *.X/Makefile
+# - *.X/nbproject/configurations.xml
+# - *.X/nbproject/project.xml
+
+build/
+debug/
+dist/
+nbproject/private/
+nbproject/*.mk
+nbproject/Makefile-genesis.properties
+nbproject/Package-default.bash
+.generated_files/

@@ -3,6 +3,7 @@
 echo "Cleaning existing html documentation..."
 rm -r ../CANopenNode.github.io/*
 rm -r ../CANopenLinux/html
+rm -r ../CANopenPIC/html
 rm -r ../CANopenLinux/CANopenNode/doc/html
 rm ../index.html
 
@@ -11,6 +12,12 @@ cd ../CANopenLinux/CANopenNode
 doxygen > /dev/null
 
 echo "Generating documentation for CANopenLinux..."
+cd ..
+doxygen > /dev/null
+
+echo "Generating documentation for CANopenPIC..."
+cd ../CANopenPIC/CANopenNode
+doxygen > /dev/null
 cd ..
 doxygen > /dev/null
 
@@ -28,6 +35,11 @@ mkdir CANopenNode.github.io/CANopenLinux
 cp -r CANopenLinux/html/* CANopenNode.github.io/CANopenLinux
 awk '/var menudata=/ { print; print "{text:\"CANopenDemo\",url:\"../index.html\"},"; next }1' CANopenNode.github.io/CANopenLinux/menudata.js > menudata.js.tmp
 mv menudata.js.tmp CANopenNode.github.io/CANopenLinux/menudata.js
+
+mkdir CANopenNode.github.io/CANopenPIC
+cp -r CANopenPIC/html/* CANopenNode.github.io/CANopenPIC
+awk '/var menudata=/ { print; print "{text:\"CANopenDemo\",url:\"../index.html\"},"; next }1' CANopenNode.github.io/CANopenPIC/menudata.js > menudata.js.tmp
+mv menudata.js.tmp CANopenNode.github.io/CANopenPIC/menudata.js
 
 
 echo "Create softlink index.html..."

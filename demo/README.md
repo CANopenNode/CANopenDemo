@@ -79,6 +79,20 @@ Note that several `*.persist` files are created in directory, from which `demoLi
     ./demoLinuxDevice can0 -i 4
 
 
+Run in PIC32
+------------
+Program runs in Arduino style [Max32 board](https://reference.digilentinc.com/reference/microprocessor/max32/start) with [PIC32MX795F512L](https://www.microchip.com/wwwproducts/en/PIC32MX795F512L) Microcontroller or in Explorer16 board. Prepare device as specified in CANopenPIC/README.md. Load demoDevice program, and connect to CANopen Network. Device runs with 250kbps with NodeId=4. First initialize the eeprom:
+
+    cocomm "4 w 0x1011 1 vs load"
+    cocomm "4 reset node"
+    cocomm "4 w 0x1010 1 vs save"
+    cocomm "4 reset node"
+
+Device has some peripherals enabled by default:
+ - chipKIT Pins 0..7 are used as digital inputs, TPDO1 sends them on change-of-state.
+ - chipKIT Pins A0..A15 are used as analog inputs, TPDO2 sends four of them if event timer is configured (`cocomm "4 w 0x1801 5 u16 500"`).
+
+
 Testing with SDO and PDO
 ------------------------
 See [tutorial/README.md](../tutorial/README.md), chapter Next steps.
