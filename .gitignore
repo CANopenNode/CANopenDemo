@@ -1,0 +1,14 @@
+*.o
+*.bak
+tmp
+index.html
+
+/tools/EDSEditor
+
+# eclipse
+.cproject
+.project
+.settings/
+
+# kdevelop
+*.kdev4

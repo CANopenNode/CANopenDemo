@@ -1,0 +1,6 @@
+
+# Linux
+demoLinuxDevice
+CANopenLinux
+*.persist
+*.persist.old
