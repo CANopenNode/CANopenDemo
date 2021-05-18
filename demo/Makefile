@@ -9,6 +9,7 @@ APPL_DRV_SRC = linux
 
 LINK_TARGET = demoLinuxDevice
 ID_FILE = linux/CO_ident_defs.h
+GIT_VERSION = $(shell git describe --tags --long --dirty)
 
 
 INCLUDE_DIRS = \
@@ -54,7 +55,7 @@ OPT += -g
 #OPT += -Wextra -Wshadow -pedantic -fanalyzer
 #OPT += -DCO_USE_GLOBALS
 #OPT += -DCO_MULTIPLE_OD
-CFLAGS = -Wall -DCO_DRIVER_CUSTOM $(OPT) $(INCLUDE_DIRS)
+CFLAGS = -Wall -DCO_SW_VERSION=\"$(GIT_VERSION)\" -DCO_DRIVER_CUSTOM $(OPT) $(INCLUDE_DIRS)
 LDFLAGS =
 LDFLAGS += -g
 LDFLAGS += -pthread
@@ -64,7 +65,7 @@ LDFLAGS += -pthread
 
 .PHONY: all clean
 
-all: clean version $(LINK_TARGET)
+all: clean $(LINK_TARGET)
 
 clean:
 	rm -f $(OBJS) $(LINK_TARGET)
@@ -74,8 +75,3 @@ clean:
 
 $(LINK_TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) $^ -o $@
-
-# Replace CO_SW_VERSION string in ID_FILE with current git version.
-# Git repository must have at least one tag specified.
-version:
-	$(shell sed -i '/CO_SW_VERSION/ s/\".*\"/\"$(shell git describe --tags --long --dirty)\"/' $(ID_FILE))

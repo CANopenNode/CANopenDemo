@@ -13,3 +13,6 @@
 [submodule "CANopenNode.github.io"]
 	path = CANopenNode.github.io
 	url = https://github.com/CANopenNode/CANopenNode.github.io
+[submodule "CANopenPIC"]
+	path = CANopenPIC
+	url = https://github.com/CANopenNode/CANopenPIC.git

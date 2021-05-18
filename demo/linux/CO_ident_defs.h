@@ -10,11 +10,13 @@
 #define CO_DEVICE_NAME "CANopenDemoLinux"
 /* Manufacturer hardware version, OD entry 0x1009 */
 #define CO_HW_VERSION "---"
-/* Manufacturer software version, OD entry 0x100A, updated on make from git
+/* Manufacturer software version, OD entry 0x100A, defined by make from git
  * version. It has form `"<tag>-<n>-g<commit>[-dirty]"`, where `<tag>` is
  * name of the last tag, `<n>` is number of commits above the tag, `g` is for
  * git, `<commit>` is commit ID and `-dirty` shows, if git is not clean. */
-#define CO_SW_VERSION ""
+#ifndef CO_SW_VERSION
+#define CO_SW_VERSION "---"
+#endif
 
 /* Identity, OD entry 0x1018 */
 #define CO_IDENTITY_VENDOR_ID 0x00000000
