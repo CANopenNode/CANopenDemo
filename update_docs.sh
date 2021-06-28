@@ -1,14 +1,14 @@
 #!/bin/bash
 
 echo "Cleaning existing html documentation..."
-rm -r ../CANopenNode.github.io/*
-rm -r ../CANopenLinux/html
-rm -r ../CANopenPIC/html
-rm -r ../CANopenLinux/CANopenNode/doc/html
-rm ../index.html
+rm -r CANopenNode.github.io/*
+rm -r CANopenLinux/html
+rm -r CANopenPIC/html
+rm -r CANopenLinux/CANopenNode/doc/html
+rm index.html
 
 echo "Generating documentation for CANopenNode..."
-cd ../CANopenLinux/CANopenNode
+cd CANopenLinux/CANopenNode
 doxygen > /dev/null
 
 echo "Generating documentation for CANopenLinux..."
