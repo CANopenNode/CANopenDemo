@@ -8,8 +8,8 @@ Description=Demo CANopen device with example usage.
 CreationTime=1:37PM
 CreationDate=11-28-2020
 CreatedBy=Janez Paternoster
-ModificationTime=12:17PM
-ModificationDate=05-17-2021
+ModificationTime=12:31PM
+ModificationDate=06-28-2021
 ModifiedBy=Janez Paternoster
 
 [DeviceInfo]
@@ -167,7 +167,7 @@ SupportedObjects=37
 ParameterName=Pre-defined error field
 ObjectType=0x8
 ;StorageLocation=RAM
-SubNumber=0x9
+SubNumber=0x11
 
 [1003sub0]
 ParameterName=Number of errors
@@ -175,7 +175,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0005
 AccessType=rw
-DefaultValue=0
+DefaultValue=
 PDOMapping=0
 
 [1003sub1]
@@ -184,7 +184,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub2]
@@ -193,7 +193,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub3]
@@ -202,7 +202,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub4]
@@ -211,7 +211,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub5]
@@ -220,7 +220,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub6]
@@ -229,7 +229,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub7]
@@ -238,7 +238,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
 PDOMapping=0
 
 [1003sub8]
@@ -247,7 +247,79 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=
+PDOMapping=0
+
+[1003sub9]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003subA]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003subB]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003subC]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003subD]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003subE]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003subF]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
+PDOMapping=0
+
+[1003sub10]
+ParameterName=Standard error field
+ObjectType=0x7
+;StorageLocation=RAM
+DataType=0x0007
+AccessType=ro
+DefaultValue=
 PDOMapping=0
 
 [1005]

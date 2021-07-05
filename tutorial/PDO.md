@@ -238,6 +238,22 @@ Configure RPDO in one or several remote devices to accept TPDO 3 from demoDevice
 Use any free RPDO and configure it to accept PDO with CAN-ID = 0x384 and data length of 4 bytes. Provide OD variables for data from demoDevice and map RPDO to them.
 
 
+Other mapping features
+----------------------
+CANopenNode enables mapping length smaller than variable length. For example, only two bytes of variable of type uint32_t can be mapped, where its little end will be used.
+
+To adjust the length of TPDO or RPDO, dummy entries can be used for mapping, for example:
+
+| Data Type    | dummy mapping |
+| ------------ | ------------- |
+| int8_t       | 0x00020008    |
+| int16_t      | 0x00030016    |
+| int32_t      | 0x00040032    |
+| int64_t      | 0x00150064    |
+
+CANopenNode granularity is 8 bits, so smallest mappable length is one byte.
+
+
 Other communication options
 ---------------------------
 More deterministic transmission of PDOs may be configured with usage of CANopen SYNC messages. See CANopen documentation.
