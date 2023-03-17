@@ -5,18 +5,18 @@ FileRevision=1
 LastEDS=
 EDSVersion=4.0
 Description=Demo CANopen device with example usage.
-CreationTime=1:37PM
+CreationTime=12:37PM
 CreationDate=11-28-2020
 CreatedBy=Janez Paternoster
-ModificationTime=12:31PM
-ModificationDate=06-28-2021
+ModificationTime=4:49PM
+ModificationDate=03-17-2023
 ModifiedBy=Janez Paternoster
 
 [DeviceInfo]
-VendorName=
-VendorNumber=
+VendorName=-
+VendorNumber=0
 ProductName=Demo device
-ProductNumber=
+ProductNumber=1
 RevisionNumber=0
 BaudRate_10=1
 BaudRate_20=1
@@ -102,7 +102,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=0x00000001
 PDOMapping=0
 
 [1018sub3]
@@ -120,11 +120,11 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x00000000
+DefaultValue=0x00000003
 PDOMapping=0
 
 [OptionalObjects]
-SupportedObjects=37
+SupportedObjects=36
 1=0x1003
 2=0x1005
 3=0x1006
@@ -141,27 +141,26 @@ SupportedObjects=37
 14=0x1017
 15=0x1019
 16=0x1200
-17=0x1280
-18=0x1400
-19=0x1401
-20=0x1402
-21=0x1403
-22=0x1600
-23=0x1601
-24=0x1602
-25=0x1603
-26=0x1800
-27=0x1801
-28=0x1802
-29=0x1803
-30=0x1A00
-31=0x1A01
-32=0x1A02
-33=0x1A03
-34=0x6000
-35=0x6200
-36=0x6401
-37=0x6411
+17=0x1400
+18=0x1401
+19=0x1402
+20=0x1403
+21=0x1600
+22=0x1601
+23=0x1602
+24=0x1603
+25=0x1800
+26=0x1801
+27=0x1802
+28=0x1803
+29=0x1A00
+30=0x1A01
+31=0x1A02
+32=0x1A03
+33=0x6000
+34=0x6200
+35=0x6401
+36=0x6411
 
 [1003]
 ParameterName=Pre-defined error field
@@ -529,7 +528,7 @@ ObjectType=0x7
 ;StorageLocation=PERSIST_COMM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x80+$NODEID
+DefaultValue=$NODEID+0x80
 PDOMapping=0
 
 [1015]
@@ -667,7 +666,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x600+$NODEID
+DefaultValue=$NODEID+0x600
 PDOMapping=1
 
 [1200sub2]
@@ -676,50 +675,8 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x580+$NODEID
+DefaultValue=$NODEID+0x580
 PDOMapping=1
-
-[1280]
-ParameterName=SDO client parameter
-ObjectType=0x9
-;StorageLocation=PERSIST_COMM
-SubNumber=0x4
-
-[1280sub0]
-ParameterName=Highest sub-index supported
-ObjectType=0x7
-;StorageLocation=RAM
-DataType=0x0005
-AccessType=ro
-DefaultValue=0x03
-PDOMapping=0
-
-[1280sub1]
-ParameterName=COB-ID client to server (tx)
-ObjectType=0x7
-;StorageLocation=RAM
-DataType=0x0007
-AccessType=rw
-DefaultValue=0x80000000
-PDOMapping=1
-
-[1280sub2]
-ParameterName=COB-ID server to client (rx)
-ObjectType=0x7
-;StorageLocation=RAM
-DataType=0x0007
-AccessType=rw
-DefaultValue=0x80000000
-PDOMapping=1
-
-[1280sub3]
-ParameterName=Node-ID of the SDO server
-ObjectType=0x7
-;StorageLocation=RAM
-DataType=0x0005
-AccessType=rw
-DefaultValue=0x01
-PDOMapping=0
 
 [1400]
 ParameterName=RPDO communication parameter
@@ -742,7 +699,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x00000200+$NODEID
+DefaultValue=$NODEID+0x00000200
 PDOMapping=0
 
 [1400sub2]
@@ -784,7 +741,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x00000300+$NODEID
+DefaultValue=$NODEID+0x00000300
 PDOMapping=0
 
 [1401sub2]
@@ -826,7 +783,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x80000400+$NODEID
+DefaultValue=$NODEID+0x80000400
 PDOMapping=0
 
 [1402sub2]
@@ -868,7 +825,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x80000500+$NODEID
+DefaultValue=$NODEID+0x80000500
 PDOMapping=0
 
 [1403sub2]
@@ -1258,7 +1215,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x40000180+$NODEID
+DefaultValue=$NODEID+0x40000180
 PDOMapping=0
 
 [1800sub2]
@@ -1318,7 +1275,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0x40000280+$NODEID
+DefaultValue=$NODEID+0x40000280
 PDOMapping=0
 
 [1801sub2]
@@ -1378,7 +1335,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0xC0000380+$NODEID
+DefaultValue=$NODEID+0xC0000380
 PDOMapping=0
 
 [1802sub2]
@@ -1438,7 +1395,7 @@ ObjectType=0x7
 ;StorageLocation=RAM
 DataType=0x0007
 AccessType=rw
-DefaultValue=0xC0000480+$NODEID
+DefaultValue=$NODEID+0xC0000480
 PDOMapping=0
 
 [1803sub2]
@@ -1925,7 +1882,7 @@ ObjectType=0x7
 DataType=0x0005
 AccessType=ro
 DefaultValue=0x08
-PDOMapping=1
+PDOMapping=0
 
 [6200sub1]
 ParameterName=Output
@@ -2012,7 +1969,7 @@ ObjectType=0x7
 DataType=0x0005
 AccessType=ro
 DefaultValue=0x10
-PDOMapping=1
+PDOMapping=0
 
 [6401sub1]
 ParameterName=Input
@@ -2171,7 +2128,7 @@ ObjectType=0x7
 DataType=0x0005
 AccessType=ro
 DefaultValue=0x08
-PDOMapping=1
+PDOMapping=0
 
 [6411sub1]
 ParameterName=Output
@@ -2287,7 +2244,7 @@ ObjectType=0x7
 DataType=0x0005
 AccessType=ro
 DefaultValue=0x10
-PDOMapping=1
+PDOMapping=0
 
 [2110sub1]
 ParameterName=int32
@@ -2446,7 +2403,7 @@ ObjectType=0x7
 DataType=0x0005
 AccessType=ro
 DefaultValue=0x10
-PDOMapping=1
+PDOMapping=0
 
 [2111sub1]
 ParameterName=int32
@@ -2605,7 +2562,7 @@ ObjectType=0x7
 DataType=0x0005
 AccessType=ro
 DefaultValue=0x10
-PDOMapping=1
+PDOMapping=0
 
 [2112sub1]
 ParameterName=int32
