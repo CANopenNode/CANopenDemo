@@ -36,7 +36,7 @@ CANopen demoDevice
 ------------------
 CANopen demoDevice can run on different target devices. It contains object dictionary with most common communication parameters and some additional manufacturer specific and device profile parameters. Simple example program run from application interface and shows some principles of CANopenNode usage.
 
-See [demo/README.md](demo/).
+See [demo/README.md](demo/README.md).
 
 
 CANopenLinux

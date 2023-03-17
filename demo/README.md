@@ -81,6 +81,8 @@ Note that several `*.persist` files are created in directory, from which `demoLi
 
 Run in PIC32
 ------------
+See CANopenPIC/README.md
+
 Program runs in Arduino style [Max32 board](https://reference.digilentinc.com/reference/microprocessor/max32/start) with [PIC32MX795F512L](https://www.microchip.com/wwwproducts/en/PIC32MX795F512L) Microcontroller or in Explorer16 board. Prepare device as specified in CANopenPIC/README.md. Load demoDevice program, and connect to CANopen Network. Device runs with 250kbps with NodeId=4. First initialize the eeprom:
 
     cocomm "4 w 0x1011 1 vs load"
