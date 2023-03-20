@@ -3,8 +3,6 @@
 tmp
 index.html
 
-/tools/EDSEditor
-
 # eclipse
 .cproject
 .project
