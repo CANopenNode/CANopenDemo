@@ -7,6 +7,7 @@
     <tab type="usergroup" title="Devices">
       <tab type="user" url="CANopenLinux/index.html" title="CANopenLinux"/>
       <tab type="user" url="CANopenPIC/index.html" title="CANopenPIC"/>
+      <tab type="user" url="CANopenADI/index.html" title="CANopenADI"/>
     </tab>
     <tab type="usergroup" title="Other">
 
