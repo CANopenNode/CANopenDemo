@@ -168,7 +168,7 @@ Restore all non-volatile storage on both devices and reset them:
     cocomm "0 reset node"
     # re-run devices in their terminals
 
-candump is now without emergency messages and there are two additional PDO messages, because devices are now in NMT operational state. Heratbeat messages are gone:
+candump is now without emergency messages and there are two additional PDO messages, because devices are now in NMT operational state. Heartbeat messages are gone:
 
     can0  701   [1]  00
     can0  704   [1]  00
