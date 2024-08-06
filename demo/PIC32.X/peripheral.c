@@ -49,9 +49,9 @@ CO_ReturnError_t peripheral_init(void) {
     CAN_ERROR_LED = 1;
 
     /* Setup extension and flags for triggering TPDO. */
-    OD_extension_init(OD_ENTRY_H6000_readDigitalInput_8_bit,
+    OD_extension_init(OD_ENTRY_H6000_readDigitalInput8_bit,
                       &OD_6000_DI_extension);
-    OD_6000_DI_flagsPDO = OD_getFlagsPDO(OD_ENTRY_H6000_readDigitalInput_8_bit);
+    OD_6000_DI_flagsPDO = OD_getFlagsPDO(OD_ENTRY_H6000_readDigitalInput8_bit);
 
     return CO_ERROR_NO;
 }
@@ -62,22 +62,22 @@ void app_peripheralRead(CO_t *co, uint32_t timer1usDiff) {
 
     /* All analog inputs must be read or interrupt source for RT thread won't be
      * cleared. See analog input configuration in main_PIC32.c */
-    OD_RAM.x6401_readAnalogInput_16_bit[0x0] = ADC1BUF0;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x1] = ADC1BUF1;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x2] = ADC1BUF2;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x3] = ADC1BUF3;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x4] = ADC1BUF4;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x5] = ADC1BUF5;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x6] = ADC1BUF6;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x7] = ADC1BUF7;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x8] = ADC1BUF8;
-    OD_RAM.x6401_readAnalogInput_16_bit[0x9] = ADC1BUF9;
-    OD_RAM.x6401_readAnalogInput_16_bit[0xA] = ADC1BUFA;
-    OD_RAM.x6401_readAnalogInput_16_bit[0xB] = ADC1BUFB;
-    OD_RAM.x6401_readAnalogInput_16_bit[0xC] = ADC1BUFC;
-    OD_RAM.x6401_readAnalogInput_16_bit[0xD] = ADC1BUFD;
-    OD_RAM.x6401_readAnalogInput_16_bit[0xE] = ADC1BUFE;
-    OD_RAM.x6401_readAnalogInput_16_bit[0xF] = ADC1BUFF;
+    OD_RAM.x6401_readAnalogInput16_bit[0x0] = ADC1BUF0;
+    OD_RAM.x6401_readAnalogInput16_bit[0x1] = ADC1BUF1;
+    OD_RAM.x6401_readAnalogInput16_bit[0x2] = ADC1BUF2;
+    OD_RAM.x6401_readAnalogInput16_bit[0x3] = ADC1BUF3;
+    OD_RAM.x6401_readAnalogInput16_bit[0x4] = ADC1BUF4;
+    OD_RAM.x6401_readAnalogInput16_bit[0x5] = ADC1BUF5;
+    OD_RAM.x6401_readAnalogInput16_bit[0x6] = ADC1BUF6;
+    OD_RAM.x6401_readAnalogInput16_bit[0x7] = ADC1BUF7;
+    OD_RAM.x6401_readAnalogInput16_bit[0x8] = ADC1BUF8;
+    OD_RAM.x6401_readAnalogInput16_bit[0x9] = ADC1BUF9;
+    OD_RAM.x6401_readAnalogInput16_bit[0xA] = ADC1BUFA;
+    OD_RAM.x6401_readAnalogInput16_bit[0xB] = ADC1BUFB;
+    OD_RAM.x6401_readAnalogInput16_bit[0xC] = ADC1BUFC;
+    OD_RAM.x6401_readAnalogInput16_bit[0xD] = ADC1BUFD;
+    OD_RAM.x6401_readAnalogInput16_bit[0xE] = ADC1BUFE;
+    OD_RAM.x6401_readAnalogInput16_bit[0xF] = ADC1BUFF;
 
     /* Read digital inputs, chipKIT Pins 0..7 */
     uint8_t digIn = 0;
@@ -90,8 +90,8 @@ void app_peripheralRead(CO_t *co, uint32_t timer1usDiff) {
     if(PORTDbits.RD2  != 0) digIn |= 0x40;
     if(PORTEbits.RE9  != 0) digIn |= 0x80;
 
-    if (digIn != OD_RAM.x6000_readDigitalInput_8_bit[0]) {
-        OD_RAM.x6000_readDigitalInput_8_bit[0] = digIn;
+    if (digIn != OD_RAM.x6000_readDigitalInput8_bit[0]) {
+        OD_RAM.x6000_readDigitalInput8_bit[0] = digIn;
         OD_requestTPDO(OD_6000_DI_flagsPDO, 1); /* subindex is 1 */
     }
 
@@ -106,8 +106,8 @@ void app_peripheralRead(CO_t *co, uint32_t timer1usDiff) {
 //    if(PORTFbits.RF13 != 0) digIn |= 0x40;
 //    if(PORTFbits.RF12 != 0) digIn |= 0x80;
 //
-//    if (digIn != OD_RAM.x6000_readDigitalInput_8_bit[1]) {
-//        OD_RAM.x6000_readDigitalInput_8_bit[1] = digIn;
+//    if (digIn != OD_RAM.x6000_readDigitalInput8_bit[1]) {
+//        OD_RAM.x6000_readDigitalInput8_bit[1] = digIn;
 //        OD_requestTPDO(OD_6000_DI_flagsPDO, 2); /* subindex is 2 */
 //    }
 }
@@ -119,7 +119,7 @@ void app_peripheralWrite(CO_t *co, uint32_t timer1usDiff) {
     CAN_ERROR_LED = CO_LED_RED(co->LEDs, CO_LED_CANopen);
 
     /* Write to digital outputs */
-    //uint8_t digOut = OD_RAM.x6200_writeDigitalOutput_8_bit[0];
+    //uint8_t digOut = OD_RAM.x6200_writeDigitalOutput8_bit[0];
     //LATAbits.LATA0 = (digOut & 0x01) ? 1 : 0;
     //LATAbits.LATA1 = (digOut & 0x02) ? 1 : 0;
     //LATAbits.LATA4 = (digOut & 0x10) ? 1 : 0;
