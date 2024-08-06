@@ -11,7 +11,7 @@ TPDO with specific 11-bit CAN identifier is transmitted by one device and reciev
 
 Each PDO can be configured with any valid 11-bit CAN identifier. Lower numbers have higher priorities on CAN bus. As a general rule, each CAN message is identified with own CAN-ID, which must be unique and produced by single source. The same is with PDO objects: Any TPDO produced on the CANopen network must have unique CAN-ID and there can be zero to many RPDOs (from different devices) configured to match the CAN-ID of the TPDO of interest.
 
-CANopen standard provides pre-defined connection sets for four RPDOs and four TPDOs on each device with specific 7-bit Node-ID. These are default values and are usable in configuration, where CANopen network contains a master device, which directly communicates with many slaves. In de-centralized systems, where devices operate without a master, it makes sense to configure CAN-IDs of the RPDOs to the non-default values. For default CAN identifiers see #CO_Default_CAN_ID_t.
+CANopen standard provides pre-defined connection sets for four RPDOs and four TPDOs on each device with specific 7-bit Node-ID. These are default values and are usable in configuration, where CANopen network contains a master device, which directly communicates with many slaves. In de-centralized systems, where devices operate without a master, it makes sense to configure CAN-IDs of the RPDOs to the non-default values. For default CAN identifiers see @ref CO_Default_CAN_ID_t.
 
 PDOs can be configured with Object Dictionary Editor or can be configured dynamically inside device running in CANopenNetwork, could be in NMT operational state.
 
