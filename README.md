@@ -29,7 +29,7 @@ If repositories are clean, the project can be updated by the following commands:
 
 Object Dictionary Editor
 ------------------------
-The latest binaries of the [CANopenEditor](https://github.com/CANopenNode/CANopenEditor) is included as a git submodule. Just run the `EDSEditor.exe` as a GUI application. You can open the `demoDevice.xdd` file, make changes according to your needs, export demoDevice.eds or demoDevice.md file, generate C source files for object dictionary (OD.h and OD.c), etc.
+Use [CANopenEditor](https://github.com/CANopenNode/CANopenEditor) to edit the object dictionary. Binaries are available, editor runs also in Linux with mono. Just run the `EDSEditor.exe` as a GUI application. You can open the `demoDevice.xdd` file, make changes according to your needs, export demoDevice.eds or demoDevice.md file, generate C source files for object dictionary (OD.h and OD.c), etc.
 
 
 CANopen demoDevice

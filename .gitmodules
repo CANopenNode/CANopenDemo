@@ -16,9 +16,6 @@
 [submodule "CANopenPIC"]
 	path = CANopenPIC
 	url = https://github.com/CANopenNode/CANopenPIC.git
-[submodule "CANopenEditor_build"]
-	path = CANopenEditor_build
-	url = https://github.com/CANopenNode/CANopenEditor
 [submodule "CANopenADI"]
 	path = CANopenADI
 	url = https://github.com/Analog-Devices-MSDK/CANopenADI
