@@ -20,7 +20,7 @@ The only requirement for this tutorial is computer with Linux. Examples will run
 ### CANopen devices
 Two CANopen devices will be used, both based on CANopenNode:
 1. `canopend` from CANopenLinux repository will be a commander device with CANopen ASCII command interface. It will run with CANopen NodeId = 1. Application `cocomm` will be used for sending commands to `canopend`. For information on compiling and installing those two applications see CANopenLinux repository.
-2. CANopen [demoDevice](demo/README.md) from demo directory. It will run with CANopen NodeId = 4. It can use any target platform listed there. Prepare the device according to the instructions.
+2. CANopen [demoDevice](../demo/README.md) from demo directory. It will run with CANopen NodeId = 4. It can use any target platform listed there. Prepare the device according to the instructions.
 
 ### CANopen network
 If you don't have CAN interface and both devices are Linux based, then virtual CAN interface can be used, which runs internally. Otherwise connect CANopen devices with wires:
@@ -111,7 +111,7 @@ Emergency messages are triggered internally by @ref CO_errorReport() function. Y
 ### Basic SDO communication and Heartbeat message
 A SDO (Service Data Object) is providing direct access to object entries of a CANopen device's object dictionary. As these object entries may contain data of arbitrary size and data type. SDOs may be used to transfer multiple data sets (each containing an arbitrary large block of data) from a client to a server and vice versa. The client shall control via a multiplexer (index and sub-index of the object dictionary) which data set shall be transferred. The content of the data set is defined within the object dictionary.
 
-See [demo/demoDevice.md](demo/demoDevice.md) for CANopen device documentation of demoDevice with description of all parameters accessible via SDO.
+See [demo/demoDevice.md](../demo/demoDevice.md) for CANopen device documentation of demoDevice with description of all parameters accessible via SDO.
 
 First configure parameter 0x1017 - Producer heartbeat time. Read current value on demoDevice:
 
@@ -193,7 +193,7 @@ Configure heartbeats, store all parameters, then reset and re-run devices. Heart
     cocomm "0 reset node"
     # re-run devices in their terminals
 
-Parameters from CANopen Object Dictionary are sorted into several storage groups. This is configured by Object dictionary editor. See [demo/demoDevice.md](demo/demoDevice.md) for storage group for each OD object.
+Parameters from CANopen Object Dictionary are sorted into several storage groups. This is configured by Object dictionary editor. See [demo/demoDevice.md](../demo/demoDevice.md) for storage group for each OD object.
 
 Storage groups are configured for storage with array of @ref CO_storage_entry_t objects. (For initialization in Linux devices see CANopenLinux/CO_main_basic.c and demo/linux/CO_driver_custom.h files.)
 
@@ -212,7 +212,7 @@ Next steps
  - [tutorial/SDO.md](SDO.md) - Further SDO access to the [demoDevice](../demo/README.md) parameters.
  - [tutorial/PDO.md](PDO.md) - Demonstration of Process Data Objects
  - [test/README.md](../test/README.md) - Automatic tests on demoDevice in running CANopen network.
- - Learn other CANopen functionalities like Heartbeat consumer, Time stamp, Sync, etc. Read CiA301 standard, CANopen book or [demo/demoDevice.md](demo/demoDevice.md).
+ - Learn other CANopen functionalities like Heartbeat consumer, Time stamp, Sync, etc. Read CiA301 standard, CANopen book or [demo/demoDevice.md](../demo/demoDevice.md).
  - Experiment with [demoDevice](../demo/README.md) on available platforms or create your own. Create own Object Dictionary.
  - For own CANopen device with own microcontroller, see `CANopenNode/doc/deviceSupport.md`.
  - Search many very useful and high quality specifications for different [device profiles](http://www.can-cia.org/standardization/specifications/), some of them are public and free to download, for example [CiA401](https://www.can-cia.org/can-knowledge/canopen/cia401/).
