@@ -56,10 +56,10 @@ Internal variable `dataSize` configures size of data to be transferred from the 
 Data bytes are received into device, any number of them. For demonstration purposed data bytes are verified: they must be in sequence 0, 1, ..., 255, 0, 1, ... If not, SDO is aborted. If transfer is successfully finished then internal variable `dataSize` is set to number of data bytes transferred.
 
 
-### OD variable mapped to TPDO triggers its sending
-In example we detect change of state of the OD variable. If value changes, then TPDO is triggered, to which that variable is possibly mapped.
+### Detecting change of state of the OD variable and request TPDO, to which OD variable is mapped
+In the example we detect change of state of the OD variable (TPDO COS functionality).
 
-`CO_application.c` shows the principle. In configuration phase extension is added to the OD entry with `OD_extension_init()`, then `flagsPDO` are extracted from extension and stored for later use  (`OD_getFlagsPDO()`).
+`CO_application.c` shows the principle. In configuration phase extension is added to the OD entry with `OD_extension_init()`.
 
 Inside `app_programRt()` function `OD_requestTPDO()` is called on OD variables, when necessary.
 

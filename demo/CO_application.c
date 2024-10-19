@@ -39,7 +39,6 @@ OD_extension_t OD_variableInt32_extension = {
     .read = OD_readOriginal,
     .write = OD_writeOriginal
 };
-uint8_t *OD_variableInt32_flagsPDO = NULL;
 
 
 /******************************************************************************/
@@ -60,10 +59,9 @@ CO_ReturnError_t app_programStart(uint16_t *bitRate,
     /* Setup bitRate, nodeId and OD objects 0x1008, 0x1009, 0x100A and 0x1018 */
     CO_identificators_init(bitRate, nodeId);
 
-    /* Setup extension and flags for triggering TPDO. */
+    /* Setup extension for triggering TPDO. */
     OD_extension_init(OD_ENTRY_H2110_variableInt32,
                       &OD_variableInt32_extension);
-    OD_variableInt32_flagsPDO = OD_getFlagsPDO(OD_ENTRY_H2110_variableInt32);
 
     /* Initialize more advanced object, which operates with Object Dictionary
      * variables in
@@ -123,7 +121,7 @@ void app_programRt(CO_t *co, uint32_t timer1usDiff) {
     /* Detect change of state and trigger TPDO. Of course, variable must be
      * mapped to event driven TPDO for this to have effect. */
     if (value_current != value_old) {
-        OD_requestTPDO(OD_variableInt32_flagsPDO, 1); /* subindex is 1 */
+        OD_requestTPDO(OD_ENTRY_H2110_variableInt32, 1); /* subindex is 1 */
     }
 
     value_old = value_current;

@@ -39,7 +39,6 @@ OD_extension_t OD_6000_DI_extension = {
     .read = OD_readOriginal,
     .write = OD_writeOriginal
 };
-uint8_t *OD_6000_DI_flagsPDO = NULL;
 
 /******************************************************************************/
 CO_ReturnError_t peripheral_init(void) {
@@ -48,10 +47,9 @@ CO_ReturnError_t peripheral_init(void) {
     CAN_RUN_LED = 0;
     CAN_ERROR_LED = 1;
 
-    /* Setup extension and flags for triggering TPDO. */
+    /* Setup extension for triggering TPDO. */
     OD_extension_init(OD_ENTRY_H6000_readDigitalInput8_bit,
                       &OD_6000_DI_extension);
-    OD_6000_DI_flagsPDO = OD_getFlagsPDO(OD_ENTRY_H6000_readDigitalInput8_bit);
 
     return CO_ERROR_NO;
 }
@@ -92,7 +90,7 @@ void app_peripheralRead(CO_t *co, uint32_t timer1usDiff) {
 
     if (digIn != OD_RAM.x6000_readDigitalInput8_bit[0]) {
         OD_RAM.x6000_readDigitalInput8_bit[0] = digIn;
-        OD_requestTPDO(OD_6000_DI_flagsPDO, 1); /* subindex is 1 */
+        OD_requestTPDO(OD_ENTRY_H6000_readDigitalInput8_bit, 1); /* subindex is 1 */
     }
 
     /* Read digital inputs, chipKIT Pins 8..15 */
@@ -108,7 +106,7 @@ void app_peripheralRead(CO_t *co, uint32_t timer1usDiff) {
 //
 //    if (digIn != OD_RAM.x6000_readDigitalInput8_bit[1]) {
 //        OD_RAM.x6000_readDigitalInput8_bit[1] = digIn;
-//        OD_requestTPDO(OD_6000_DI_flagsPDO, 2); /* subindex is 2 */
+//        OD_requestTPDO(OD_ENTRY_H6000_readDigitalInput8_bit, 2); /* subindex is 2 */
 //    }
 }
 
